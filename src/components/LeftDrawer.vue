@@ -1,42 +1,51 @@
 <template lang="pug">
 .left-drawer
-  q-drawer.bg-blured(v-model='mainDrawer' show-if-above :mini='miniState' @mouseover='miniState = false' @mouseout='miniState = true' :width="200" bordered)
-    router-link(:to="{ name: 'home' }")
+  q-drawer.bg-blured.q-mt-sm(
+    v-model='mainDrawer'
+    show-if-above
+    :mini='miniState'
+    @mouseover='miniState = false'
+    @mouseout='miniState = true'
+    :width="200"
+    )
+    router-link.text-decoration-none(:to="{ name: 'home' }")
       q-item(clickable v-ripple)
         q-item-section(avatar)
-          q-icon(name='home' color='white')
+          q-avatar(square size='24px')
+            img(src='public/icons/home.png')
         q-item-section
           .text-white Главная
-    router-link(:to="{ name: 'mod-builds'}")
-      q-item(clickable v-ripple)
-        q-item-section(avatar)
-          q-icon(name='file_download' color='white')
-        q-item-section
-          .text-white Сборки
-    q-expansion-item.text-white(
+    q-expansion-item.text-white.q-py-sm(
       :expanded.sync="modelsExpanded"
       dense
-      icon="person_4"
-      icon-color="white"
-      label="Модели"
       :expand-icon="modelsExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down'"
       )
-      q-item(clickable v-ripple align="center")
+      template(v-slot:header)
+        q-item-section(avatar)
+          q-icon(color='grey-7' name="perm_identity")
         q-item-section
-          span.text-white Модели игроков
-      q-item(clickable v-ripple align="center")
+          | Модели
+      router-link.text-decoration-none(:to="{ name: 'player-models'}")
+        q-item(clickable v-ripple align="center")
+          q-item-section(avatar)
+            q-avatar(square size='24px')
+              img(src='public/icons/pose.png')
+          q-item-section
+            span.text-white Модели игроков
+      router-link.text-decoration-none(:to="{ name: 'weapon-models'}")
+        q-item(clickable v-ripple align="center")
+          q-item-section(avatar)
+            q-avatar(square size='26px')
+              img(src='public/icons/gun.png')
+          q-item-section
+            span.text-white Модели оружия
+    router-link.text-decoration-none(:to="{ name: 'faq'}")
+      q-item(clickable v-ripple)
+        q-item-section(avatar)
+          q-avatar(square size='24px')
+            img(src='public/icons/exclamation-point.png')
         q-item-section
-          span.text-white Модели оружия
-    q-item(clickable v-ripple)
-      q-item-section(avatar)
-        q-icon(name='star' color='white')
-      q-item-section
-        .text-white О игре
-        //q-item(clickable v-ripple)
-        //  q-item-section(avatar)
-        //    q-icon(name='send')
-        //  q-item-section
-        //    | Модели игроков
+          .text-white О игре
 </template>
 
 <script>
@@ -47,6 +56,8 @@ export default ({
     const mainDrawer = ref(false)
     const miniState = ref(true)
     const modelsExpanded = ref(false)
+
+
     return {
       mainDrawer,
       miniState,
@@ -60,6 +71,13 @@ export default ({
 .left-drawer {
   .q-drawer {
     background-color: rgba(66, 63, 63, 0.79);
+  }
+  .q-item-section.avatar {
+    padding: 0;
+    margin: 0;
+  }
+  .q-item--active {
+    text-decoration: none;
   }
 }
 

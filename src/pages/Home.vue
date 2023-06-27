@@ -1,33 +1,62 @@
 <template lang="pug">
 .home
   q-card.q-pa-md.q-mt-xl.q-mx-xl(flat bordered)
-    q-card-section.row.justify-between
-      .text-h6.text-grey-4.text-bold Скачать Counter-Strike 1.6 (CS 1.6)
-    q-card-action
-      q-btn(
-        flat
-        dense
-        color="primary"
-        label="Скачать"
-        no-caps
-        @click="download"
-      )
-    q-card-section.main-text.text-grey-4
-      p.text-subtitle2.
-        Counter-Strike 1.6 (CS 1.6) - это многопользовательская командная игра в жанре шутера от первого лица. Игроки делятся на две команды: террористов и контр-террористов. Цель террористов - разместить и взорвать бомбу, захватить заложников или уничтожить всю команду контр-террористов. Контр-террористы же стремятся предотвратить террористические акты, обезвредить бомбу или освободить заложников.
-      p.text-subtitle2.
-        Игра предлагает разнообразные карты, на которых происходят бои. Командный кооператив, тактическое планирование и точность стрельбы играют ключевую роль в достижении успеха. Каждая команда имеет доступ к различному оружию и снаряжению, которые можно приобрести за заработанные внутриигровые деньги. Игра также позволяет создавать и использовать свои собственные модификации и карты, что добавляет гибкость и возможность создания уникального игрового опыта.
-      p.text-subtitle2.
-        Counter-Strike 1.6 была одной из наиболее популярных онлайн-игр, ставшей символом эры первых онлайн-шутеров. Она предлагает интенсивные бои, стратегическую глубину и соревновательный характер, который продолжает привлекать множество игроков по всему миру.
+    .row
+      .col
+        q-card-section.row.justify-between
+          .text-h4.text-grey-4.text-bold Скачать КС 1.6 Русская версия (Counter-Strike 1.6)
+        q-card-section.main-text.text-grey-4
+          p.text-subtitle2.
+            Counter-Strike 1.6, она же CS 1.6 - многопользовательская компьютерная игра в жанре популярного и легендарного шутера от первого лица,
+            основная концепция которой заключается в противостоянии команд спецназа и террористов на различной местности и по разным сценариям.
+            Для онлайн игры по интренету в поиске доступны сервера с различными модами.
+            Также есть режим игры с Ботами на любых картах.
+          p.text-subtitle2.
+            В Контру можно играть даже на слабом компьютере.
+            Главное загрузить клиент игры и погрузиться в увлекательный и захватывающий мир баталий
+          .text-h6.text-grey-4.text-bold Скачать КС 1.6 — проще простого!
+          p.text-subtitle2.
+            Скачать и установить бесплатно чистую стандартную сборку Контр-Страйк 1.6 с защитой, на основе оригинальной Steam версии, можно по прямой ссылке ниже.
+        q-card-actions.q-ml-md
+          q-btn.main-btn.text-grey-9.text-bold(
+            class="glossy"
+            color="grey-4"
+            label="Скачать игру"
+            @click="download"
+          )
+      .col
+        .carousel-wrapper
+          q-carousel.centered-carousel.shadow-7(
+              animated
+              v-model="slide"
+              navigation
+              infinite
+              :autoplay="true"
+              transition-prev="slide-right"
+              transition-next="slide-left"
+              @mouseenter="autoplay = false"
+              @mouseleave="autoplay = true"
+            )
+              q-carousel-slide( :name="1" img-src="~/assets/images/img1.jpg")
+              q-carousel-slide( :name="2" img-src="~/assets/images/img2.png")
+              q-carousel-slide( :name="3" img-src="~/assets/images/img3.png")
+              q-carousel-slide( :name="4" img-src="~/assets/images/img4.png")
+              q-carousel-slide( :name="5" img-src="~/assets/images/img5.png")
+              q-carousel-slide( :name="6" img-src="~/assets/images/img6.png")
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import {defineComponent, ref} from 'vue'
 
 export default defineComponent({
   name: 'IndexPage',
   setup() {
-    return {}
+    const slide = ref(1)
+    const download = () => {
+    }
+    return {
+      slide
+    }
   }
 })
 </script>
@@ -37,8 +66,22 @@ export default defineComponent({
   .q-card {
     background: radial-gradient(circle, rgba(86, 88, 89, 0.78) 0%, rgba(44, 44, 44, 0.75) 100%)
   }
-  .main-text {
-    width: 70%
+  .q-carousel {
+    height: 62%;
+    width: 605px;
+  }
+  .carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  .centered-carousel {
+    width: 80%;
+    height: 80%;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 

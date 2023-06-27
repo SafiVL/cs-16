@@ -6,9 +6,9 @@ const routes = [
     children: [
       { path: '', name: 'home', component: () => import('pages/Home.vue') },
       { path: '/mod_builds', name: 'mod-builds', component: () => import('pages/ModBuilds.vue') },
-      { path: '', component: () => import('pages/Home.vue') },
-      { path: '', component: () => import('pages/Home.vue') },
-      { path: '', component: () => import('pages/Home.vue') }
+      { path: '/player_models', name: 'player-models', component: () => import('pages/PlayerModels.vue') },
+      { path: '/weapon_models', name: 'weapon-models', component: () => import('pages/WeaponModels.vue') },
+      { path: '/faq', name: 'faq', component: () => import('pages/AboutTheGame.vue') }
     ]
   },
 

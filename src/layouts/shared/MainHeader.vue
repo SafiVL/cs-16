@@ -1,7 +1,9 @@
 <template lang="pug">
 q-header(elevated :class="$q.dark.isActive ? 'bg-secondary' : 'bg-black'")
   q-toolbar
-    q-toolbar-title.q-ml-xl CS-NET
+    .q-ml-lg
+    img.main-logo(src='public/icons/logo.png')
+    q-toolbar-title.q-ml-sn CS-NET
 </template>
 
 <script>
@@ -17,3 +19,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.main-logo {
+  width: 70px;
+  height: 45px;
+}
+</style>
