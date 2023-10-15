@@ -4,13 +4,14 @@
     img( src="https://cdn.quasar.dev/img/mountains.jpg")
     q-card-section.row.justify-between
       .text-h6 Name
-      .text-subtitle1 lorem ipsum dolor sit amet
     q-card-actions(vertical)
-      q-btn.main-btn.text-bold.text-grey-9(
-        class="glossy"
-        color="grey-4"
-        label="Подробно"
-      )
+      router-link(:to="{ name: 'player-model' }")
+        q-btn.main-btn.text-bold.text-grey-9.full-width(
+          no-caps
+          class="glossy"
+          color="grey-4"
+          label="Подробно"
+        )
 </template>
 
 <script>

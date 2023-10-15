@@ -1,10 +1,10 @@
 <template lang="pug">
 .home
-  q-card.q-pa-md.q-mt-xl.q-mx-xl(flat bordered)
+  q-card.main-card.q-pa-md.q-mt-xl.q-mx-xl(flat bordered)
     .row
       .col
         q-card-section.row.justify-between
-          .text-h4.text-grey-4.text-bold Скачать КС 1.6 Русская версия (Counter-Strike 1.6)
+          h5.test.text-bold.q-my-none Скачать КС 1.6 Русская версия (Counter-Strike 1.6)
         q-card-section.main-text.text-grey-4
           p.text-subtitle2.
             Counter-Strike 1.6, она же CS 1.6 - многопользовательская компьютерная игра в жанре популярного и легендарного шутера от первого лица,
@@ -18,12 +18,12 @@
           p.text-subtitle2.
             Скачать и установить бесплатно чистую стандартную сборку Контр-Страйк 1.6 с защитой, на основе оригинальной Steam версии, можно по прямой ссылке ниже.
         q-card-actions.q-ml-md
-          q-btn.main-btn.text-grey-9.text-bold(
-            class="glossy"
-            color="grey-4"
-            label="Скачать игру"
+          q-btn.main-btn.text-grey-9.text-weight-bold(
+            no-caps
+            color="yellow-13"
             @click="download"
           )
+            span.download.text-grey-14 Скачать игру
       .col
         .carousel-wrapper
           q-carousel.centered-carousel.shadow-7(
@@ -63,8 +63,12 @@ export default defineComponent({
 
 <style lang="scss">
 .home {
-  .q-card {
-    background: radial-gradient(circle, rgba(86, 88, 89, 0.78) 0%, rgba(44, 44, 44, 0.75) 100%)
+  .download {
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  .main-btn:hover {
+    box-shadow: 0px 0px 20px 4px rgba(255, 242, 0, 0.47);
   }
   .q-carousel {
     height: 62%;

@@ -1,12 +1,11 @@
 <template lang="pug">
 .left-drawer
-  q-drawer.bg-blured.q-mt-sm(
+  q-drawer.q-mt-sm(
     v-model='mainDrawer'
     show-if-above
-    :mini='miniState'
     @mouseover='miniState = false'
     @mouseout='miniState = true'
-    :width="200"
+    :width="218"
     )
     router-link.text-decoration-none(:to="{ name: 'home' }")
       q-item(clickable v-ripple)
@@ -14,7 +13,7 @@
           q-avatar(square size='24px')
             img(src='public/icons/home.png')
         q-item-section
-          .text-white Главная
+          .text-weight-bold.drawer-text Главная
     q-expansion-item.text-white.q-py-sm(
       :expanded.sync="modelsExpanded"
       dense
@@ -24,28 +23,28 @@
         q-item-section(avatar)
           q-icon(color='grey-7' name="perm_identity")
         q-item-section
-          | Модели
+          .text-weight-bold.drawer-text Модели
       router-link.text-decoration-none(:to="{ name: 'player-models'}")
         q-item(clickable v-ripple align="center")
           q-item-section(avatar)
             q-avatar(square size='24px')
               img(src='public/icons/pose.png')
           q-item-section
-            span.text-white Модели игроков
+            .text-weight-bold.drawer-text Модели игроков
       router-link.text-decoration-none(:to="{ name: 'weapon-models'}")
         q-item(clickable v-ripple align="center")
           q-item-section(avatar)
             q-avatar(square size='26px')
               img(src='public/icons/gun.png')
           q-item-section
-            span.text-white Модели оружия
+            .text-weight-bold.drawer-text Модели оружия
     router-link.text-decoration-none(:to="{ name: 'faq'}")
       q-item(clickable v-ripple)
         q-item-section(avatar)
           q-avatar(square size='24px')
             img(src='public/icons/exclamation-point.png')
         q-item-section
-          .text-white О игре
+          .text-weight-bold.drawer-text О игре
 </template>
 
 <script>
@@ -70,7 +69,7 @@ export default ({
 <style lang="scss">
 .left-drawer {
   .q-drawer {
-    background-color: rgba(66, 63, 63, 0.79);
+    background-color: rgba(66, 63, 63, 0.9);
   }
   .q-item-section.avatar {
     padding: 0;

@@ -5,3 +5,19 @@
 .text-decoration-none {
   text-decoration: none !important;
 }
+.main-card {
+  background: radial-gradient(circle, rgba(86, 88, 89, 0.9) 0%, rgba(43, 43, 43, 0.94) 100%)
+}
+.blue {
+  font-size: 16px;
+  color: #00a5ff
+}
+.test {
+  color: transparent;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(to right, #0060c6, #00a5ff, #fff200)
+}
+.drawer-text {
+  font-size: 16px;
+  color: $grey-4;
+}
